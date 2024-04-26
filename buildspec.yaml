@@ -2,8 +2,13 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      terraform: 1.0.0
+    commands:
+      # install terraform binary
+      - curl -s -qL -o terraform_install.zip https://releases.hashicorp.com/terraform/1.8.1/terraform_1.8.1_linux_amd64.zip
+      - unzip terraform_install.zip -d /usr/bin/
+      - chmod +x /usr/bin/terraform
+    finally:
+      - terraform --version
   pre_build:
     commands:
       - terraform init
