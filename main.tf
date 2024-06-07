@@ -4,7 +4,7 @@ provider "aws" {
 
 
 resource "aws_security_group" "webtraffic" {
-name = "Allow HTTPS"
+name = "Allow HTTPS1"
 
 
 dynamic "ingress" {
